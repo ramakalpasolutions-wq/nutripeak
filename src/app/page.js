@@ -10,9 +10,9 @@ export default function Home() {
   const productsScrollRef = useRef(null)
 
   const heroImages = [
-    '/hero-1.jpg',
-    '/hero-2.jpg',
-    '/hero-3.jpg'
+    '/hero-1.png',
+    '/hero-2.png',
+    '/hero-3.png'
   ]
 
   useEffect(() => {
