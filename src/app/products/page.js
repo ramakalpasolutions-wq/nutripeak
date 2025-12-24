@@ -53,7 +53,7 @@ export default function Products() {
     {
       id: 5,
       name: 'L-TYROSINE',
-      category: ['All Products', 'HEALTH & WELLNESS'],
+      category: ['All Products', 'ENERGY'],
       image: '/products/l-tyrosine.jpg',
       shortDesc: 'Neuro Transmitter support for mental alertness.',
       fullDesc: 'Neuro Transmitter support for mental alertness. Memory and thinking skills (cognitive function). Improve mental performance under stressful conditions. Healthy glandular function.'
@@ -61,7 +61,7 @@ export default function Products() {
     {
       id: 6,
       name: 'ALPHA GPC',
-      category: ['All Products', 'HEALTH & WELLNESS'],
+      category: ['All Products', 'ENERGY'],
       image: '/products/alpha-gpc.jpg',
       shortDesc: 'High Quality Alpha Glycerophosphocholine (GPC).',
       fullDesc: 'High Quality Alpha Glycerophosphocholine (GPC). Healthy Cognitive Health Promoting Supplement. Rich in Choline. Gluten Free and Non-GMO. Supports Mental Activity.'
@@ -77,7 +77,7 @@ export default function Products() {
     {
       id: 8,
       name: 'L-GLUTAMINE',
-      category: ['All Products', 'SPORTS NUTRITION'],
+      category: ['All Products', 'HEALTH & WELLNESS'],
       image: '/products/l-glutamine.jpg',
       shortDesc: 'Most abundant free amino acid. Normalize growth hormone.',
       fullDesc: 'Most abundant free amino acid. Normalize growth hormone. Promote glucose uptake after workouts. Enhance the hydration state of a muscle. Promotes synthesis of glucosamine.'
@@ -124,11 +124,11 @@ export default function Products() {
     <>
       <Navbar />
       
-      <div className="pt-28">
+      <div className="pt-20 sm:pt-24 md:pt-28">
 
-        {/* Hero Banner */}
-        <section className="relative h-96 md:h-[460px] overflow-hidden bg-white">
-          <div className="grid md:grid-cols-2 h-full">
+        {/* Hero Banner - Fully Responsive */}
+        <section className="relative h-64 sm:h-80 md:h-96 lg:h-[460px] overflow-hidden bg-white">
+          <div className="grid grid-cols-1 md:grid-cols-2 h-full">
             <div className="hidden md:block relative">
               <img 
                 src="/products-hero.jpg" 
@@ -136,45 +136,57 @@ export default function Products() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="relative bg-white overflow-hidden flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 transform -skew-x-12 origin-top-left scale-150"></div>
-              <h1 className="relative z-10 text-6xl md:text-8xl font-black text-white uppercase tracking-wider">
+            <div className="relative overflow-hidden flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #73C7E3, #89FF9F)' }}>
+              <h1 className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white uppercase tracking-wider px-4">
                 PRODUCTS
               </h1>
             </div>
           </div>
         </section>
 
-        {/* Intro Text */}
-        <section className="py-12 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+        {/* Intro Text - Responsive */}
+        <section className="py-8 sm:py-10 md:py-12 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
               Explore our diverse range of nutraceutical products designed to enhance your health and vitality. From vitamins and supplements to specialized formulations for targeted health benefits, each product is crafted to empower you on your journey to better health.
             </p>
           </div>
         </section>
 
-        {/* Category Tabs and Products */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+        {/* Category Tabs and Products - Responsive */}
+        <section className="py-8 sm:py-12 md:py-16 bg-white">
+          <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
             
             {/* Header with Title and Filters */}
-            <div className="mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mb-8">
+            <div className="mb-8 sm:mb-10 md:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 mb-6 sm:mb-8">
                 Our<br className="md:hidden" /> Products
               </h2>
               
-              {/* Category Filter Buttons - Horizontal Layout */}
-              <div className="flex flex-wrap gap-3 items-center">
+              {/* Category Filter Buttons - Responsive */}
+              <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
                 {categories.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all whitespace-nowrap ${
+                    className={`px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm md:text-base font-semibold transition-all whitespace-nowrap ${
                       activeCategory === cat
-                        ? 'bg-yellow-400 text-gray-900 shadow-md'
-                        : 'bg-white text-gray-700 border border-gray-300 hover:border-yellow-400 hover:text-yellow-600'
+                        ? 'text-white shadow-md'
+                        : 'bg-white text-gray-700 border border-gray-300'
                     }`}
+                    style={activeCategory === cat ? { background: 'linear-gradient(135deg, #89FF9F, #73C7E3)' } : {}}
+                    onMouseOver={(e) => {
+                      if (activeCategory !== cat) {
+                        e.target.style.borderColor = '#89FF9F'
+                        e.target.style.color = '#059669'
+                      }
+                    }}
+                    onMouseOut={(e) => {
+                      if (activeCategory !== cat) {
+                        e.target.style.borderColor = '#d1d5db'
+                        e.target.style.color = '#374151'
+                      }
+                    }}
                   >
                     {cat}
                   </button>
@@ -182,30 +194,32 @@ export default function Products() {
               </div>
             </div>
 
-            {/* Products Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Products Grid - Fully Responsive */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
               {filteredProducts.map((product) => (
                 <div 
                   key={product.id} 
-                  className="bg-white rounded-2xl border-2 border-blue-200 overflow-hidden hover:shadow-xl transition group"
+                  className="bg-white rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-xl transition group"
+                  style={{ border: '2px solid #dbeafe' }}
                 >
-                  <div className="h-72 bg-gray-50 flex items-center justify-center p-6">
+                  <div className="h-56 sm:h-64 md:h-72 lg:h-80 bg-gray-50 flex items-center justify-center p-4 sm:p-6">
                     <img 
                       src={product.image} 
                       alt={product.name} 
                       className="w-full h-full object-contain group-hover:scale-105 transition"
                     />
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-gray-700 mb-3">{product.name}</h3>
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  <div className="p-4 sm:p-5 md:p-6">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-700 mb-2 sm:mb-3">{product.name}</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 leading-relaxed">
                       {expandedProducts.includes(product.id) 
                         ? product.fullDesc 
                         : product.shortDesc}
                     </p>
                     <button 
                       onClick={() => toggleExpand(product.id)}
-                      className="text-green-500 font-semibold hover:underline text-sm"
+                      className="font-semibold hover:underline text-xs sm:text-sm"
+                      style={{ color: '#89FF9F' }}
                     >
                       {expandedProducts.includes(product.id) ? 'Read less' : 'Read more'}
                     </button>
@@ -217,10 +231,10 @@ export default function Products() {
           </div>
         </section>
 
-        {/* Disclaimer */}
-        <section className="py-6 bg-gray-100">
-          <div className="max-w-6xl mx-auto px-6 md:px-12">
-            <p className="text-center text-gray-600 text-sm leading-relaxed">
+        {/* Disclaimer - Responsive */}
+        <section className="py-4 sm:py-6 bg-gray-100">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+            <p className="text-center text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
               <strong>Disclaimer:</strong> These products are not intended to diagnose, treat, or cure any disease. If you are pregnant, nursing, taking medication, or have a medical condition, consult your physician before using this product.
             </p>
           </div>
