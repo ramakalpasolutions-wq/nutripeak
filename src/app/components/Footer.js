@@ -13,7 +13,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="text-white" style={{ background: 'linear-gradient(135deg, #73C7E3, #89FF9F)' }}>
+    <footer className="text-black" style={{ background: 'linear-gradient(135deg, #73C7E3, #89FF9F)' }}>
       
       {/* Top Section - Fully Responsive */}
       <div className="py-8 sm:py-10 md:py-12 lg:py-16">
@@ -39,7 +39,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="px-8 sm:px-10 py-4 sm:py-5 font-bold text-base sm:text-lg text-white transition"
+                  className="px-8 sm:px-10 py-4 sm:py-5 font-bold text-base sm:text-lg text-black transition"
                   style={{ background: 'linear-gradient(135deg, #89FF9F, #73C7E3)' }}
                   onMouseOver={(e) => e.target.style.opacity = '0.9'}
                   onMouseOut={(e) => e.target.style.opacity = '1'}
@@ -73,7 +73,7 @@ export default function Footer() {
       </div>
 
       {/* Border Line */}
-      <div className="border-t border-white/20"></div>
+      <div className="border-t border-black/20"></div>
 
       {/* Main Footer Content - Responsive */}
       <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-8 sm:py-10 md:py-12 lg:py-16">
@@ -82,7 +82,7 @@ export default function Footer() {
           {/* Left Column - Why People Like us */}
           <div>
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">Why People Like us!</h3>
-            <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
+            <p className="text-black/90 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
               We blend scientific innovation with the wisdom of nature to develop cutting-edge nutraceutical formulations.
             </p>
             <Link href="/about" className="inline-block text-gray-900 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-bold text-sm sm:text-base transition" style={{ backgroundColor: '#ffffff' }}
@@ -104,7 +104,7 @@ export default function Footer() {
                 { href: '/contact', label: 'Contact Us' }
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-white/90 hover:text-white transition">
+                  <Link href={link.href} className="text-black/90 hover:text-white transition">
                     {link.label}
                   </Link>
                 </li>
@@ -115,7 +115,7 @@ export default function Footer() {
           {/* Right Column - Contact */}
           <div>
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Contact</h3>
-            <div className="space-y-3 sm:space-y-4 text-white/90 text-sm sm:text-base md:text-lg leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 text-black/90 text-sm sm:text-base md:text-lg leading-relaxed">
               <p>
                 <strong className="block mb-1">Address:</strong>
                 4-14-142, Samrat Colony, West Marredpally, Secunderabad, TS - 26
@@ -138,7 +138,7 @@ export default function Footer() {
                 <p className="font-bold mb-2 sm:mb-3">Payment Accepted</p>
                 <div className="flex gap-2 sm:gap-3 flex-wrap">
                   <div className="w-14 h-10 sm:w-16 sm:h-11 bg-blue-700 rounded-md flex items-center justify-center shadow-md">
-                    <span className="text-white font-bold text-xs">VISA</span>
+                    <span className="text-black font-bold text-xs">VISA</span>
                   </div>
                   <div className="w-14 h-10 sm:w-16 sm:h-11 bg-orange-500 rounded-md flex items-center justify-center shadow-md">
                     <div className="flex gap-0.5">
@@ -160,9 +160,9 @@ export default function Footer() {
       </div>
 
       {/* Copyright - Responsive */}
-      <div className="border-t border-white/20 py-3 sm:py-4">
+      <div className="border-t border-black/20 py-3 sm:py-4">
         <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 text-center">
-          <p className="text-white/80 text-xs sm:text-sm md:text-base">
+          <p className="text-black/80 text-xs sm:text-sm md:text-base">
             &copy; 2025 Nutripeak. All rights reserved.
           </p>
         </div>

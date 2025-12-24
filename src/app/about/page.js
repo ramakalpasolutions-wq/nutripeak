@@ -1,13 +1,15 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
+
 export default function About() {
   return (
     <>
       <Navbar />
-      
+
       {/* Add padding for fixed navbar - Responsive */}
       <div className="pt-20 sm:pt-24 md:pt-28">
+
 
         {/* Hero Banner - Fully Responsive */}
         <section className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] overflow-hidden">
@@ -20,14 +22,15 @@ export default function About() {
             </div>
             {/* Right - Image */}
             <div className="hidden md:block">
-              <img 
-                src="/about-hero.jpg" 
-                alt="About Us" 
+              <img
+                src="/about-hero.jpg"
+                alt="About Us"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
         </section>
+
 
         {/* Company Overview - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
@@ -44,6 +47,7 @@ export default function About() {
           </div>
         </section>
 
+
         {/* Who We Are - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
@@ -59,6 +63,7 @@ export default function About() {
           </div>
         </section>
 
+
         {/* Our Mission - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
@@ -71,6 +76,7 @@ export default function About() {
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed text-center mb-8 sm:mb-10 md:mb-12">
               At Nutripeak, our mission is to empower individuals to achieve optimal health and wellness through natural, science-backed nutraceutical solutions. We believe that everyone deserves access to high-quality, effective supplements that support a balanced lifestyle and enhance overall well-being.
             </p>
+
 
             {/* Mission Values Grid - Responsive */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-x-16 md:gap-y-8 max-w-4xl mx-auto">
@@ -97,7 +103,7 @@ export default function About() {
                     <span className="text-xl sm:text-2xl" style={{ color: '#89FF9F' }}>✓</span>
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">{item.title}</h3>
                   </div>
-                  <p className="text-gray-600 pl-8 sm:pl-10 text-sm sm:text-base">
+                  <p className="text-gray-600 pl-8 sm:pl-10 text-sm sm:text-base mt-2 sm:mt-3">
                     {item.desc}
                   </p>
                 </div>
@@ -105,6 +111,7 @@ export default function About() {
             </div>
           </div>
         </section>
+
 
         {/* Our Commitment - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20" style={{ background: 'linear-gradient(to bottom, #f0fdf4, #ffffff)' }}>
@@ -118,46 +125,53 @@ export default function About() {
               </p>
             </div>
 
+
+            {/* Commitment Cards - Responsive */}
             {/* Commitment Cards - Responsive */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {[
                 {
-                  image: '/commitment-1.jpg',
+                  image: '/commitment-1.jpeg',
                   title: 'QUALITY ASSURANCE',
-                  desc: 'We adhere to strict quality control processes from ingredient sourcing to manufacturing, ensuring that every product is pure, potent, and reliable.'
+                  desc: 'We adhere to strict quality control processes from ingredient sourcing to manufacturing, ensuring that every product is pure, potent, and reliable.',
+                  marginTop: 'mt-2 sm:mt-1'  // Individual margin for card 1
                 },
                 {
-                  image: '/commitment-2.jpg',
+                  image: '/commitment-2.jpeg',
                   title: 'INNOVATION',
-                  desc: 'We continuously explore the latest advancements in nutritional science to create products that address diverse health needs and support optimal wellness.'
+                  desc: 'We continuously explore the latest advancements in nutritional science to create products that address diverse health needs and support optimal wellness.',
+                  marginTop: 'mt-3 sm:mt-10'  // Individual margin for card 2
                 },
                 {
-                  image: '/commitment-3.jpg',
+                  image: '/commitment-3.jpeg',
                   title: 'TRANSPARENCY',
-                  desc: 'We believe in transparency. We provide clear, comprehensive information about our ingredients, formulations, and manufacturing practices so you can make informed choices.'
+                  desc: 'We believe in transparency. We provide clear, comprehensive information about our ingredients, formulations, and manufacturing practices so you can make informed choices.',
+                  marginTop: 'mt-4 sm:mt-9'  // Individual margin for card 3
                 }
               ].map((item, i) => (
-                <div key={i} className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
-                  <div className="h-48 sm:h-56 md:h-64">
+                <div key={i} className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition flex flex-col">
+                  <div className="h-48 sm:h-56 md:h-64 flex-shrink-0">
                     <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                   </div>
-                  <div className="p-4 sm:p-5 md:p-6 text-center">
+                  <div className="p-4 sm:p-5 md:p-6 text-center flex flex-col flex-grow">
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">{item.title}</h3>
-                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                    <p className={`text-gray-600 leading-relaxed text-sm sm:text-base flex-grow ${item.marginTop}`}>
                       {item.desc}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
+
           </div>
         </section>
+
 
         {/* Additional Sections Grid - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              
+
               {[
                 {
                   icon: '📋',
@@ -189,15 +203,17 @@ export default function About() {
                     <span className="text-2xl sm:text-3xl">{item.icon}</span>
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-700">{item.title}</h3>
                   </div>
-                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base mt-3 sm:mt-4">
                     {item.desc}
                   </p>
                 </div>
               ))}
 
+
             </div>
           </div>
         </section>
+
 
         {/* Our Values - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
@@ -211,6 +227,7 @@ export default function About() {
                 At Nutripeak, our values are the cornerstone of everything we do. They guide our decisions, actions, & relationships as we strive to make a positive impact on the health & wellness of our customers & communities.
               </p>
             </div>
+
 
             {/* Values Grid - Responsive */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-x-16 md:gap-y-10 max-w-5xl mx-auto">
@@ -237,7 +254,7 @@ export default function About() {
                     <span className="text-xl sm:text-2xl" style={{ color: '#89FF9F' }}>✓</span>
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">{item.title}</h3>
                   </div>
-                  <p className="text-gray-600 leading-relaxed pl-8 sm:pl-10 text-sm sm:text-base">
+                  <p className="text-gray-600 leading-relaxed pl-8 sm:pl-10 text-sm sm:text-base mt-2 sm:mt-3">
                     {item.desc}
                   </p>
                 </div>
@@ -245,6 +262,7 @@ export default function About() {
             </div>
           </div>
         </section>
+
 
         {/* Our Vision - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
@@ -258,6 +276,7 @@ export default function About() {
                 At Nutripeak, our vision is to lead the nutraceutical industry by pioneering innovative health solutions that enhance the well-being of our customers worldwide. We envision a future where natural, science-backed supplements are integral to every individual's journey towards optimal health and vitality.
               </p>
             </div>
+
 
             {/* Vision Grid - Responsive */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 max-w-5xl mx-auto">
@@ -280,7 +299,7 @@ export default function About() {
                     <span className="text-2xl sm:text-3xl" style={{ color: '#89FF9F' }}>✓</span>
                   </div>
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700 mb-2 sm:mb-3">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base mt-2 sm:mt-3">
                     {item.desc}
                   </p>
                 </div>
@@ -289,7 +308,9 @@ export default function About() {
           </div>
         </section>
 
+
       </div>
+
 
       <Footer />
     </>
