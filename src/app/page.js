@@ -1,15 +1,18 @@
 'use client'
 
 
+
 import { useState, useEffect, useRef } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Link from 'next/link'
 
 
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const productsScrollRef = useRef(null)
+
 
 
   const heroImages = [
@@ -19,12 +22,14 @@ export default function Home() {
   ]
 
 
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length)
     }, 5000)
     return () => clearInterval(timer)
   }, [])
+
 
 
   const featuredProducts = [
@@ -86,6 +91,7 @@ export default function Home() {
   ]
 
 
+
   const scrollProducts = (direction) => {
     if (productsScrollRef.current) {
       const scrollAmount = 350
@@ -99,6 +105,7 @@ export default function Home() {
       })
     }
   }
+
 
 
   return (
@@ -127,6 +134,7 @@ export default function Home() {
           ))}
 
 
+
           {/* Navigation Arrows - Responsive */}
           <div className="absolute inset-0 flex items-center justify-between px-3 sm:px-6 md:px-12">
             <button
@@ -142,6 +150,7 @@ export default function Home() {
               <span className="text-xl sm:text-2xl md:text-3xl text-white font-bold">›</span>
             </button>
           </div>
+
 
 
           {/* Dots - Responsive */}
@@ -162,6 +171,7 @@ export default function Home() {
         </section>
 
 
+
         {/* Company Overview - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20" style={{ background: 'linear-gradient(to bottom, #e0f2fe, #f0fdf4)' }}>
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
@@ -173,6 +183,7 @@ export default function Home() {
             </p>
           </div>
         </section>
+
 
 
         {/* Who We Are - Responsive */}
@@ -188,6 +199,7 @@ export default function Home() {
         </section>
 
 
+
         {/* Our Mission & Vision - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20" style={{ background: 'linear-gradient(to bottom, #f0fdf4, #ffffff)' }}>
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
@@ -195,11 +207,11 @@ export default function Home() {
               
               {/* Our Mission */}
               <div>
-                <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700">Our mission</h2>
                   <span className="text-2xl sm:text-3xl md:text-4xl">🚀</span>
                 </div>
-                <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
+                <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6 text-left">
                   At Nutripeak, our mission is to empower individuals to achieve optimal health and wellness through natural, science-backed nutraceutical solutions. We believe that everyone deserves access to high-quality, effective supplements that support a balanced lifestyle and enhance overall well-being. <Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline">Read more</Link>
                 </p>
                 
@@ -214,14 +226,15 @@ export default function Home() {
               </div>
 
 
+
               {/* Our Vision */}
               <div>
-                <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700">Our Vision</h2>
                   <span className="text-2xl sm:text-3xl md:text-4xl">🏢</span>
                 </div>
-                <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
-                  At Nutripeak, our vision is to lead the nutraceutical industry by pioneering innovative health solutions that enhance the well-being of our customers worldwide. We envision a future where natural, science-backed supplements are integral to every individual's journey towards optimal health and vitality.<Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline">Read more</Link>
+                <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6 text-left">
+                  At Nutripeak, our vision is to lead the nutraceutical industry by pioneering innovative health solutions that enhance the well-being of our customers worldwide. We envision a future where natural, science-backed supplements are integral to every individual's journey towards optimal health and vitality. <Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline">Read more</Link>
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -235,9 +248,11 @@ export default function Home() {
               </div>
 
 
+
             </div>
           </div>
         </section>
+
 
 
         {/* Our Values - Responsive */}
@@ -248,7 +263,7 @@ export default function Home() {
               <span className="text-2xl sm:text-3xl md:text-4xl">🤝</span>
             </div>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed text-center max-w-5xl mx-auto mb-6 sm:mb-8">
-              At Nutripeak, our values are the cornerstone of everything we do. They guide our decisions, actions, and relationships as we strive to make a positive impact on the health and wellness of our customers and communities.<Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline">Read more</Link>
+              At Nutripeak, our values are the cornerstone of everything we do. They guide our decisions, actions, and relationships as we strive to make a positive impact on the health and wellness of our customers and communities. <Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline">Read more</Link>
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
@@ -261,6 +276,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
 
 
         {/* Featured Products - Fully Responsive with Side Navigation */}
@@ -308,6 +324,7 @@ export default function Home() {
                 <span className="text-xl xl:text-2xl">←</span>
               </button>
 
+
               {/* Right Navigation Button - Desktop Only */}
               <button 
                 onClick={() => scrollProducts('right')}
@@ -318,6 +335,7 @@ export default function Home() {
               >
                 <span className="text-xl xl:text-2xl">→</span>
               </button>
+
 
               {/* Products Scroll Container */}
               <div 
@@ -344,6 +362,7 @@ export default function Home() {
         </section>
 
 
+
         {/* Benefits Section - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
@@ -367,6 +386,7 @@ export default function Home() {
         </section>
 
 
+
         {/* Disclaimer - Responsive */}
         <section className="py-4 sm:py-6 bg-gray-100">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
@@ -377,20 +397,11 @@ export default function Home() {
         </section>
 
 
+
       </div>
 
 
       <Footer />
-      
-      <style jsx global>{`
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </>
   )
 }

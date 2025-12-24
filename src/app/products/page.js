@@ -28,7 +28,8 @@ export default function Products() {
       category: ['All Products', 'HEALTH & WELLNESS'],
       image: '/products/biotin-keratin.jpg',
       shortDesc: 'Biotin, protein, soya, iso-flavours with grape seed extract,',
-      fullDesc: 'Biotin, protein, soya, iso-flavours with grape seed extract,essential vitamins & minerals for hair, skin and nails. Contains 100% RDA of biotin which promotes healthy, long & shiny hair. Supports healthy, firmer, brighter & toned skin. Supports healthy nails.'
+      fullDesc: 'Biotin, protein, soya, iso-flavours with grape seed extract,essential vitamins & minerals for hair, skin and nails. Contains 100% RDA of biotin which promotes healthy, long & shiny hair. Supports healthy, firmer, brighter & toned skin. Supports healthy nails.',
+      marginTop: 'sm:mt-3 md:mt-4 lg:mt-0'
     },
     {
       id: 2,
@@ -36,7 +37,8 @@ export default function Products() {
       category: ['All Products', 'SPORTS NUTRITION'],
       image: '/products/creatine.jpg',
       shortDesc: 'Helps increase protein synthesis. Enhance performance',
-      fullDesc: 'Helps increase protein synthesis. Enhance performance and build lean body mass. Improves heart muscle strength. Also increases bone density. Supports in neurological and neurodegenerative diseases'
+      fullDesc: 'Helps increase protein synthesis. Enhance performance and build lean body mass. Improves heart muscle strength. Also increases bone density. Supports in neurological and neurodegenerative diseases',
+      marginTop: 'sm:mt-4 md:mt-5 lg:mt-0'
     },
     {
       id: 3,
@@ -44,7 +46,8 @@ export default function Products() {
       category: ['All Products', 'ENERGY'],
       image: '/products/hy5.jpg',
       shortDesc: 'HY5, a carefully crafted supplement, boosts focus and',
-      fullDesc: 'HY5, a carefully crafted supplement, boosts focus and concentration. Its natural blend includes caffeine, vitamins, amino acids, and nootropics, making it an ideal choice for sustained energy and sharp mental acuity during critical moments.'
+      fullDesc: 'HY5, a carefully crafted supplement, boosts focus and concentration. Its natural blend includes caffeine, vitamins, amino acids, and nootropics, making it an ideal choice for sustained energy and sharp mental acuity during critical moments.',
+      marginTop: 'sm:mt-3 md:mt-6 lg:mt-0'
     },
     {
       id: 4,
@@ -52,7 +55,8 @@ export default function Products() {
       category: ['All Products', 'COLLAGEN'],
       image: '/products/collagen.jpg',
       shortDesc: '100% pure collagen protein enriched with hyaluronic acid, vitamin C',
-      fullDesc: '100% pure collagen protein enriched with hyaluronic acid, vitamin C & biotin.Aids in radiant & glowing skin. Promotes longer & thicker hair. Provides strength & flexibility. Supports joint health & flexibility. Available in 3 flavours; blueberry, orange & strawberry lemon.'
+      fullDesc: '100% pure collagen protein enriched with hyaluronic acid, vitamin C & biotin.Aids in radiant & glowing skin. Promotes longer & thicker hair. Provides strength & flexibility. Supports joint health & flexibility. Available in 3 flavours; blueberry, orange & strawberry lemon.',
+      marginTop: 'sm:mt-4 md:mt-4 lg:mt-0'
     },
     {
       id: 5,
@@ -60,7 +64,8 @@ export default function Products() {
       category: ['All Products', 'ENERGY'],
       image: '/products/l-tyrosine.jpg',
       shortDesc: 'Neuro Transmitter support for mental alertness.',
-      fullDesc: 'Neuro Transmitter support for mental alertness. Memory and thinking skills (cognitive function). Improve mental performance under stressful conditions. Healthy glandular function.'
+      fullDesc: 'Neuro Transmitter support for mental alertness. Memory and thinking skills (cognitive function). Improve mental performance under stressful conditions. Healthy glandular function.',
+      marginTop: 'sm:mt-5 md:mt-7 lg:mt-0'
     },
     {
       id: 6,
@@ -68,7 +73,8 @@ export default function Products() {
       category: ['All Products', 'ENERGY'],
       image: '/products/alpha-gpc.jpg',
       shortDesc: 'High Quality Alpha Glycerophosphocholine (GPC).',
-      fullDesc: 'High Quality Alpha Glycerophosphocholine (GPC). Healthy Cognitive Health Promoting Supplement. Rich in Choline. Gluten Free and Non-GMO. Supports Mental Activity.'
+      fullDesc: 'High Quality Alpha Glycerophosphocholine (GPC). Healthy Cognitive Health Promoting Supplement. Rich in Choline. Gluten Free and Non-GMO. Supports Mental Activity.',
+      marginTop: 'sm:mt-3 md:mt-5 lg:mt-0'
     },
     {
       id: 7,
@@ -76,7 +82,8 @@ export default function Products() {
       category: ['All Products', 'LIVER SUPPORT'],
       image: '/products/milk-thistle.jpg',
       shortDesc: 'Helps in protecting the cells of liver by blocking harmful',
-      fullDesc: 'Helps in protecting the cells of liver by blocking harmful toxins, protects from free radical damage & gives a boost of antioxidants. Helps in maintaining liver, kidney & gall bladder health. Powerful liver detoxifier, aids to maintain healthy blood sugar levels, good cholesterol levels & brain health. Optimises function of digestive tract.'
+      fullDesc: 'Helps in protecting the cells of liver by blocking harmful toxins, protects from free radical damage & gives a boost of antioxidants. Helps in maintaining liver, kidney & gall bladder health. Powerful liver detoxifier, aids to maintain healthy blood sugar levels, good cholesterol levels & brain health. Optimises function of digestive tract.',
+      marginTop: 'sm:mt-4 md:mt-6 lg:mt-0'
     },
     {
       id: 8,
@@ -84,7 +91,8 @@ export default function Products() {
       category: ['All Products', 'HEALTH & WELLNESS'],
       image: '/products/l-glutamine.jpg',
       shortDesc: 'Most abundant free amino acid. Normalize growth hormone.',
-      fullDesc: 'Most abundant free amino acid. Normalize growth hormone. Promote glucose uptake after workouts. Enhance the hydration state of a muscle. Promotes synthesis of glucosamine.'
+      fullDesc: 'Most abundant free amino acid. Normalize growth hormone. Promote glucose uptake after workouts. Enhance the hydration state of a muscle. Promotes synthesis of glucosamine.',
+      marginTop: 'sm:mt-3 md:mt-4 lg:mt-0'
     },
     {
       id: 9,
@@ -92,7 +100,8 @@ export default function Products() {
       category: ['All Products', 'HEALTH & WELLNESS'],
       image: '/products/super-greens.jpg',
       shortDesc: 'Helps in detoxification. Supports joint & bone health.',
-      fullDesc: 'Helps in detoxification. Supports joint & bone health. Aids in digestive discomfort. Promotes weight loss & appetite control.'
+      fullDesc: 'Helps in detoxification. Supports joint & bone health. Aids in digestive discomfort. Promotes weight loss & appetite control.',
+      marginTop: 'sm:mt-5 md:mt-7 lg:mt-0'
     },
     {
       id: 10,
@@ -100,7 +109,8 @@ export default function Products() {
       category: ['All Products', 'HEALTH & WELLNESS'],
       image: '/products/super-reds.jpg',
       shortDesc: 'May slow the signs of ageing. Promotes healthy & glowing skin.',
-      fullDesc: 'May slow the signs of ageing. Promotes healthy & glowing skin. Supports cardiovascular well-being. Benefits vision & eye health.'
+      fullDesc: 'May slow the signs of ageing. Promotes healthy & glowing skin. Supports cardiovascular well-being. Benefits vision & eye health.',
+      marginTop: 'sm:mt-4 md:mt-5 lg:mt-0'
     },
     {
       id: 11,
@@ -108,7 +118,8 @@ export default function Products() {
       category: ['All Products', 'SPORTS NUTRITION'],
       image: '/products/l-citrulline.jpg',
       shortDesc: 'Supports longer workouts, less soreness, better recovery.',
-      fullDesc: 'Supports longer workouts, less soreness, better recovery. Alleviate the onset of fatigue during intense training. Aids blood flow to muscles during exercise. Helps improve urea cycle disorders. Helps improve erectile dysfunction.'
+      fullDesc: 'Supports longer workouts, less soreness, better recovery. Alleviate the onset of fatigue during intense training. Aids blood flow to muscles during exercise. Helps improve urea cycle disorders. Helps improve erectile dysfunction.',
+      marginTop: 'sm:mt-3 md:mt-6 lg:mt-0'
     }
   ]
 
@@ -222,7 +233,7 @@ export default function Products() {
                   </div>
                   <div className="p-4 sm:p-5 md:p-6">
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-700 mb-2 sm:mb-3">{product.name}</h3>
-                    <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 leading-relaxed">
+                    <p className={`text-gray-600 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 leading-relaxed ${product.marginTop}`}>
                       {expandedProducts.includes(product.id) 
                         ? product.fullDesc 
                         : product.shortDesc}
