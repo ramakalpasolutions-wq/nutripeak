@@ -2,13 +2,16 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 
+
 export default function About() {
   return (
     <>
       <Navbar />
 
+
       {/* Add padding for fixed navbar - Responsive */}
       <div className="pt-20 sm:pt-24 md:pt-28">
+
 
 
         {/* Hero Banner - Fully Responsive */}
@@ -32,6 +35,7 @@ export default function About() {
         </section>
 
 
+
         {/* Company Overview - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
@@ -46,6 +50,7 @@ export default function About() {
             </p>
           </div>
         </section>
+
 
 
         {/* Who We Are - Responsive */}
@@ -64,6 +69,7 @@ export default function About() {
         </section>
 
 
+
         {/* Our Mission - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
@@ -76,6 +82,7 @@ export default function About() {
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed text-center mb-8 sm:mb-10 md:mb-12">
               At Nutripeak, our mission is to empower individuals to achieve optimal health and wellness through natural, science-backed nutraceutical solutions. We believe that everyone deserves access to high-quality, effective supplements that support a balanced lifestyle and enhance overall well-being.
             </p>
+
 
 
             {/* Mission Values Grid - Responsive */}
@@ -100,7 +107,7 @@ export default function About() {
               ].map((item, i) => (
                 <div key={i}>
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                    <span className="text-xl sm:text-2xl" style={{ color: '#89FF9F' }}>✓</span>
+                    <span className="text-xl sm:text-2xl" style={{ color: '#73C7E3' }}>✓</span>
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">{item.title}</h3>
                   </div>
                   <p className="text-gray-600 pl-8 sm:pl-10 text-sm sm:text-base mt-2 sm:mt-3">
@@ -111,6 +118,7 @@ export default function About() {
             </div>
           </div>
         </section>
+
 
 
         {/* Our Commitment - Responsive */}
@@ -126,7 +134,7 @@ export default function About() {
             </div>
 
 
-            {/* Commitment Cards - Responsive */}
+
             {/* Commitment Cards - Responsive */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {[
@@ -134,19 +142,19 @@ export default function About() {
                   image: '/commitment-1.jpeg',
                   title: 'QUALITY ASSURANCE',
                   desc: 'We adhere to strict quality control processes from ingredient sourcing to manufacturing, ensuring that every product is pure, potent, and reliable.',
-                  marginTop: 'mt-2 sm:mt-1'  // Individual margin for card 1
+                  marginTop: 'mt-2 sm:mt-1'
                 },
                 {
                   image: '/commitment-2.jpeg',
                   title: 'INNOVATION',
                   desc: 'We continuously explore the latest advancements in nutritional science to create products that address diverse health needs and support optimal wellness.',
-                  marginTop: 'mt-3 sm:mt-10'  // Individual margin for card 2
+                  marginTop: 'mt-3 sm:mt-10'
                 },
                 {
                   image: '/commitment-3.jpeg',
                   title: 'TRANSPARENCY',
                   desc: 'We believe in transparency. We provide clear, comprehensive information about our ingredients, formulations, and manufacturing practices so you can make informed choices.',
-                  marginTop: 'mt-4 sm:mt-9'  // Individual margin for card 3
+                  marginTop: 'mt-4 sm:mt-9'
                 }
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition flex flex-col">
@@ -163,14 +171,17 @@ export default function About() {
               ))}
             </div>
 
+
           </div>
         </section>
+
 
 
         {/* Additional Sections Grid - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+
 
               {[
                 {
@@ -210,9 +221,11 @@ export default function About() {
               ))}
 
 
+
             </div>
           </div>
         </section>
+
 
 
         {/* Our Values - Responsive */}
@@ -227,6 +240,7 @@ export default function About() {
                 At Nutripeak, our values are the cornerstone of everything we do. They guide our decisions, actions, & relationships as we strive to make a positive impact on the health & wellness of our customers & communities.
               </p>
             </div>
+
 
 
             {/* Values Grid - Responsive */}
@@ -251,7 +265,7 @@ export default function About() {
               ].map((item, i) => (
                 <div key={i}>
                   <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                    <span className="text-xl sm:text-2xl" style={{ color: '#89FF9F' }}>✓</span>
+                    <span className="text-xl sm:text-2xl" style={{ color: '#73C7E3' }}>✓</span>
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">{item.title}</h3>
                   </div>
                   <p className="text-gray-600 leading-relaxed pl-8 sm:pl-10 text-sm sm:text-base mt-2 sm:mt-3">
@@ -262,6 +276,7 @@ export default function About() {
             </div>
           </div>
         </section>
+
 
 
         {/* Our Vision - Responsive */}
@@ -276,6 +291,7 @@ export default function About() {
                 At Nutripeak, our vision is to lead the nutraceutical industry by pioneering innovative health solutions that enhance the well-being of our customers worldwide. We envision a future where natural, science-backed supplements are integral to every individual's journey towards optimal health and vitality.
               </p>
             </div>
+
 
 
             {/* Vision Grid - Responsive */}
@@ -296,7 +312,7 @@ export default function About() {
               ].map((item, i) => (
                 <div key={i} className="text-center">
                   <div className="flex justify-center mb-3 sm:mb-4">
-                    <span className="text-2xl sm:text-3xl" style={{ color: '#89FF9F' }}>✓</span>
+                    <span className="text-2xl sm:text-3xl" style={{ color: '#73C7E3' }}>✓</span>
                   </div>
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700 mb-2 sm:mb-3">{item.title}</h3>
                   <p className="text-gray-600 leading-relaxed text-sm sm:text-base mt-2 sm:mt-3">
@@ -309,7 +325,9 @@ export default function About() {
         </section>
 
 
+
       </div>
+
 
 
       <Footer />

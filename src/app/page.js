@@ -1,13 +1,16 @@
 'use client'
 
+
 import { useState, useEffect, useRef } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Link from 'next/link'
 
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const productsScrollRef = useRef(null)
+
 
   const heroImages = [
     '/hero-1.png',
@@ -15,12 +18,14 @@ export default function Home() {
     '/hero-3.png'
   ]
 
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length)
     }, 5000)
     return () => clearInterval(timer)
   }, [])
+
 
   const featuredProducts = [
     {
@@ -80,6 +85,7 @@ export default function Home() {
     }
   ]
 
+
   const scrollProducts = (direction) => {
     if (productsScrollRef.current) {
       const scrollAmount = 350
@@ -93,6 +99,7 @@ export default function Home() {
       })
     }
   }
+
 
   return (
     <>
@@ -119,6 +126,7 @@ export default function Home() {
             </div>
           ))}
 
+
           {/* Navigation Arrows - Responsive */}
           <div className="absolute inset-0 flex items-center justify-between px-3 sm:px-6 md:px-12">
             <button
@@ -134,6 +142,7 @@ export default function Home() {
               <span className="text-xl sm:text-2xl md:text-3xl text-white font-bold">›</span>
             </button>
           </div>
+
 
           {/* Dots - Responsive */}
           <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 z-10">
@@ -152,6 +161,7 @@ export default function Home() {
           </div>
         </section>
 
+
         {/* Company Overview - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20" style={{ background: 'linear-gradient(to bottom, #e0f2fe, #f0fdf4)' }}>
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
@@ -164,6 +174,7 @@ export default function Home() {
           </div>
         </section>
 
+
         {/* Who We Are - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
@@ -175,6 +186,7 @@ export default function Home() {
             </p>
           </div>
         </section>
+
 
         {/* Our Mission & Vision - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20" style={{ background: 'linear-gradient(to bottom, #f0fdf4, #ffffff)' }}>
@@ -201,6 +213,7 @@ export default function Home() {
                 </div>
               </div>
 
+
               {/* Our Vision */}
               <div>
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
@@ -221,9 +234,11 @@ export default function Home() {
                 </div>
               </div>
 
+
             </div>
           </div>
         </section>
+
 
         {/* Our Values - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
@@ -247,54 +262,87 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Products - Fully Responsive */}
+
+        {/* Featured Products - Fully Responsive with Side Navigation */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20" style={{ background: 'linear-gradient(to bottom, #ffffff, #e0f2fe)' }}>
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+            
+            {/* Header with Navigation Buttons (Mobile & Tablet) */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-12 gap-4">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 uppercase">Featured Products</h2>
-              <div className="flex gap-2 sm:gap-3">
+              
+              {/* Mobile/Tablet Navigation Buttons */}
+              <div className="flex gap-2 sm:gap-3 lg:hidden">
                 <button 
                   onClick={() => scrollProducts('left')}
-                  className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center transition text-sm sm:text-base md:text-lg"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition text-sm sm:text-base md:text-lg"
                   style={{ border: '2px solid #73C7E3', color: '#73C7E3', background: 'white' }}
-                  onMouseOver={(e) => e.target.style.background = '#e0f2fe'}
-                  onMouseOut={(e) => e.target.style.background = 'white'}
+                  onMouseOver={(e) => e.currentTarget.style.background = '#e0f2fe'}
+                  onMouseOut={(e) => e.currentTarget.style.background = 'white'}
                 >
                   ←
                 </button>
                 <button 
                   onClick={() => scrollProducts('right')}
-                  className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center transition text-sm sm:text-base md:text-lg"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition text-sm sm:text-base md:text-lg"
                   style={{ border: '2px solid #73C7E3', color: '#73C7E3', background: 'white' }}
-                  onMouseOver={(e) => e.target.style.background = '#e0f2fe'}
-                  onMouseOut={(e) => e.target.style.background = 'white'}
+                  onMouseOver={(e) => e.currentTarget.style.background = '#e0f2fe'}
+                  onMouseOut={(e) => e.currentTarget.style.background = 'white'}
                 >
                   →
                 </button>
               </div>
             </div>
             
-            <div 
-              ref={productsScrollRef}
-              className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth pb-4 hide-scrollbar"
-            >
-              {featuredProducts.map((product, i) => (
-                <div key={i} className="bg-white rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-xl transition flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96" style={{ border: '2px solid #d1fae5' }}>
-                  <div className="h-48 sm:h-56 md:h-64 bg-gray-100 flex items-center justify-center p-4 sm:p-6">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
+            {/* Products Carousel with Side Buttons */}
+            <div className="relative">
+              
+              {/* Left Navigation Button - Desktop Only */}
+              <button 
+                onClick={() => scrollProducts('left')}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 xl:-translate-x-8 w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center transition z-10 hidden lg:flex shadow-lg"
+                style={{ border: '2px solid #73C7E3', color: '#73C7E3' }}
+                onMouseOver={(e) => e.currentTarget.style.background = '#e0f2fe'}
+                onMouseOut={(e) => e.currentTarget.style.background = 'white'}
+              >
+                <span className="text-xl xl:text-2xl">←</span>
+              </button>
+
+              {/* Right Navigation Button - Desktop Only */}
+              <button 
+                onClick={() => scrollProducts('right')}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 xl:translate-x-8 w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center transition z-10 hidden lg:flex shadow-lg"
+                style={{ border: '2px solid #73C7E3', color: '#73C7E3' }}
+                onMouseOver={(e) => e.currentTarget.style.background = '#e0f2fe'}
+                onMouseOut={(e) => e.currentTarget.style.background = 'white'}
+              >
+                <span className="text-xl xl:text-2xl">→</span>
+              </button>
+
+              {/* Products Scroll Container */}
+              <div 
+                ref={productsScrollRef}
+                className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth pb-4 hide-scrollbar"
+              >
+                {featuredProducts.map((product, i) => (
+                  <div key={i} className="bg-white rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-xl transition flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96" style={{ border: '2px solid #d1fae5' }}>
+                    <div className="h-48 sm:h-56 md:h-64 bg-gray-100 flex items-center justify-center p-4 sm:p-6">
+                      <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
+                    </div>
+                    <div className="p-4 sm:p-6">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-700 mb-2 sm:mb-3">{product.name}</h3>
+                      <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 leading-relaxed line-clamp-3">{product.desc}</p>
+                      <Link href="/products" className="font-semibold hover:underline text-xs sm:text-sm" style={{ color: '#73C7E3' }}>
+                        check more
+                      </Link>
+                    </div>
                   </div>
-                  <div className="p-4 sm:p-6">
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-700 mb-2 sm:mb-3">{product.name}</h3>
-                    <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 leading-relaxed line-clamp-3">{product.desc}</p>
-                    <Link href="/products" className="font-semibold hover:underline text-xs sm:text-sm" style={{ color: '#73C7E3' }}>
-                      check more
-                    </Link>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
+
 
         {/* Benefits Section - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
@@ -318,6 +366,7 @@ export default function Home() {
           </div>
         </section>
 
+
         {/* Disclaimer - Responsive */}
         <section className="py-4 sm:py-6 bg-gray-100">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
@@ -327,9 +376,21 @@ export default function Home() {
           </div>
         </section>
 
+
       </div>
 
+
       <Footer />
+      
+      <style jsx global>{`
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </>
   )
 }

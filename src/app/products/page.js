@@ -1,12 +1,15 @@
 'use client'
 
+
 import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
+
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('All Products')
   const [expandedProducts, setExpandedProducts] = useState([])
+
 
   const categories = [
     'All Products',
@@ -16,6 +19,7 @@ export default function Products() {
     'HEALTH & WELLNESS',
     'COLLAGEN'
   ]
+
 
   const products = [
     {
@@ -108,9 +112,11 @@ export default function Products() {
     }
   ]
 
+
   const filteredProducts = activeCategory === 'All Products'
     ? products
     : products.filter(p => p.category.includes(activeCategory))
+
 
   const toggleExpand = (productId) => {
     setExpandedProducts(prev => 
@@ -120,11 +126,13 @@ export default function Products() {
     )
   }
 
+
   return (
     <>
       <Navbar />
       
       <div className="pt-20 sm:pt-24 md:pt-28">
+
 
         {/* Hero Banner - Fully Responsive */}
         <section className="relative h-64 sm:h-80 md:h-96 lg:h-[460px] overflow-hidden bg-white">
@@ -144,6 +152,7 @@ export default function Products() {
           </div>
         </section>
 
+
         {/* Intro Text - Responsive */}
         <section className="py-8 sm:py-10 md:py-12 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
@@ -152,6 +161,7 @@ export default function Products() {
             </p>
           </div>
         </section>
+
 
         {/* Category Tabs and Products - Responsive */}
         <section className="py-8 sm:py-12 md:py-16 bg-white">
@@ -177,14 +187,14 @@ export default function Products() {
                     style={activeCategory === cat ? { background: 'linear-gradient(135deg, #89FF9F, #73C7E3)' } : {}}
                     onMouseOver={(e) => {
                       if (activeCategory !== cat) {
-                        e.target.style.borderColor = '#89FF9F'
-                        e.target.style.color = '#059669'
+                        e.currentTarget.style.borderColor = '#89FF9F'
+                        e.currentTarget.style.color = '#059669'
                       }
                     }}
                     onMouseOut={(e) => {
                       if (activeCategory !== cat) {
-                        e.target.style.borderColor = '#d1d5db'
-                        e.target.style.color = '#374151'
+                        e.currentTarget.style.borderColor = '#d1d5db'
+                        e.currentTarget.style.color = '#374151'
                       }
                     }}
                   >
@@ -193,6 +203,7 @@ export default function Products() {
                 ))}
               </div>
             </div>
+
 
             {/* Products Grid - Fully Responsive */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
@@ -219,7 +230,7 @@ export default function Products() {
                     <button 
                       onClick={() => toggleExpand(product.id)}
                       className="font-semibold hover:underline text-xs sm:text-sm"
-                      style={{ color: '#89FF9F' }}
+                      style={{ color: '#73C7E3' }}
                     >
                       {expandedProducts.includes(product.id) ? 'Read less' : 'Read more'}
                     </button>
@@ -228,8 +239,10 @@ export default function Products() {
               ))}
             </div>
 
+
           </div>
         </section>
+
 
         {/* Disclaimer - Responsive */}
         <section className="py-4 sm:py-6 bg-gray-100">
@@ -240,7 +253,9 @@ export default function Products() {
           </div>
         </section>
 
+
       </div>
+
 
       <Footer />
     </>
