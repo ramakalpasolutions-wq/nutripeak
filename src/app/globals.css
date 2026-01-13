@@ -42,6 +42,39 @@ body {
   scrollbar-width: none;
 }
 
+/* Bounce Animation for Emojis */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite ease-in-out;
+}
+
+/* Smooth Transitions for Interactive Elements */
+* {
+  transition-property: transform, opacity, background-color, color, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-bounce {
+    animation: none;
+  }
+}
+
 /* Responsive container max-widths */
 .container-responsive {
   width: 100%;
@@ -90,6 +123,7 @@ body {
     padding: 0 6rem;
   }
 }
+
 @layer utilities {
   .hide-scrollbar {
     -ms-overflow-style: none;

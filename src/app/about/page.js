@@ -1,48 +1,73 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-
-
 export default function About() {
+  const [isVisible, setIsVisible] = useState({})
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible((prev) => ({ ...prev, [entry.target.id]: true }))
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    const sections = document.querySelectorAll('[data-animate]')
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <>
       <Navbar />
 
-
-      {/* Add padding for fixed navbar - Responsive */}
       <div className="pt-20 sm:pt-24 md:pt-28">
 
-
-
-        {/* Hero Banner - Fully Responsive */}
+        {/* Hero Banner */}
         <section className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2 h-full">
             {/* Left - Gradient Background */}
-            <div className="flex items-center justify-center px-6 sm:px-8 md:px-12" style={{ background: 'linear-gradient(135deg, #73C7E3, #89FF9F)' }}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white uppercase tracking-wider">
+            <div 
+              className="flex items-center justify-center px-6 sm:px-8 md:px-12 animate-fade-in" 
+              style={{ background: 'linear-gradient(135deg, #73C7E3, #89FF9F)' }}
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white uppercase tracking-wider hover:scale-105 transition-transform duration-500">
                 ABOUT US
               </h1>
             </div>
             {/* Right - Image */}
-            <div className="hidden md:block">
+            <div className="hidden md:block overflow-hidden">
               <img
                 src="/about-hero.jpg"
                 alt="About Us"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
             </div>
           </div>
         </section>
 
-
-
-        {/* Company Overview - Responsive */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+        {/* Company Overview */}
+        <section 
+          id="company-overview"
+          data-animate
+          className={`py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50 transition-all duration-700 ${
+            isVisible['company-overview'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
             <div className="text-center mb-6 sm:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center hover:scale-105 transition-transform duration-300">
                 Company Overview
-                <span className="text-2xl sm:text-3xl">📋</span>
+                <span className="text-2xl sm:text-3xl animate-float">📋</span>
               </h2>
             </div>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed text-center">
@@ -51,15 +76,19 @@ export default function About() {
           </div>
         </section>
 
-
-
-        {/* Who We Are - Responsive */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        {/* Who We Are */}
+        <section 
+          id="who-we-are"
+          data-animate
+          className={`py-8 sm:py-12 md:py-16 lg:py-20 bg-white transition-all duration-700 delay-100 ${
+            isVisible['who-we-are'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
             <div className="text-center mb-6 sm:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center hover:scale-105 transition-transform duration-300">
                 Who We Are
-                <span className="text-2xl sm:text-3xl">👥</span>
+                <span className="text-2xl sm:text-3xl animate-float" style={{ animationDelay: '0.2s' }}>👥</span>
               </h2>
             </div>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed text-center">
@@ -68,24 +97,26 @@ export default function About() {
           </div>
         </section>
 
-
-
-        {/* Our Mission - Responsive */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+        {/* Our Mission */}
+        <section 
+          id="our-mission"
+          data-animate
+          className={`py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50 transition-all duration-700 delay-200 ${
+            isVisible['our-mission'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
             <div className="text-center mb-6 sm:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center hover:scale-105 transition-transform duration-300">
                 Our mission
-                <span className="text-2xl sm:text-3xl">🚀</span>
+                <span className="text-2xl sm:text-3xl animate-pulse">🚀</span>
               </h2>
             </div>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed text-center mb-8 sm:mb-10 md:mb-12">
               At Nutripeak, our mission is to empower individuals to achieve optimal health and wellness through natural, science-backed nutraceutical solutions. We believe that everyone deserves access to high-quality, effective supplements that support a balanced lifestyle and enhance overall well-being.
             </p>
 
-
-
-            {/* Mission Values Grid - Responsive */}
+            {/* Mission Values Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-x-16 md:gap-y-8 max-w-4xl mx-auto">
               {[
                 {
@@ -105,10 +136,14 @@ export default function About() {
                   desc: 'Dedication to exceptional customer service, supporting our customers on their journey to better health every step of the way.'
                 }
               ].map((item, i) => (
-                <div key={i}>
+                <div 
+                  key={i}
+                  className="hover:translate-x-2 transition-transform duration-300"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                    <span className="text-xl sm:text-2xl" style={{ color: '#73C7E3' }}>✓</span>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">{item.title}</h3>
+                    <span className="text-xl sm:text-2xl transition-transform hover:scale-125 duration-300" style={{ color: '#73C7E3' }}>✓</span>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700 hover:text-[#73C7E3] transition-colors duration-300">{item.title}</h3>
                   </div>
                   <p className="text-gray-600 pl-8 sm:pl-10 text-sm sm:text-base mt-2 sm:mt-3">
                     {item.desc}
@@ -119,13 +154,18 @@ export default function About() {
           </div>
         </section>
 
-
-
-        {/* Our Commitment - Responsive */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20" style={{ background: 'linear-gradient(to bottom, #f0fdf4, #ffffff)' }}>
+        {/* Our Commitment */}
+        <section 
+          id="our-commitment"
+          data-animate
+          className={`py-8 sm:py-12 md:py-16 lg:py-20 transition-all duration-700 ${
+            isVisible['our-commitment'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          style={{ background: 'linear-gradient(to bottom, #f0fdf4, #ffffff)' }}
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
             <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase mb-3 sm:mb-4" style={{ color: '#059669' }}>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase mb-3 sm:mb-4 hover:scale-105 transition-transform duration-300" style={{ color: '#059669' }}>
                 OUR COMMITMENT
               </h2>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
@@ -133,9 +173,7 @@ export default function About() {
               </p>
             </div>
 
-
-
-            {/* Commitment Cards - Responsive */}
+            {/* Commitment Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {[
                 {
@@ -157,12 +195,20 @@ export default function About() {
                   marginTop: 'mt-4 sm:mt-9'
                 }
               ].map((item, i) => (
-                <div key={i} className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition flex flex-col">
-                  <div className="h-48 sm:h-56 md:h-64 flex-shrink-0">
-                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                <div 
+                  key={i} 
+                  className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-500 flex flex-col group"
+                  style={{ animationDelay: `${i * 150}ms` }}
+                >
+                  <div className="h-48 sm:h-56 md:h-64 flex-shrink-0 overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                    />
                   </div>
                   <div className="p-4 sm:p-5 md:p-6 text-center flex flex-col flex-grow">
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">{item.title}</h3>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4 group-hover:text-[#059669] transition-colors duration-300">{item.title}</h3>
                     <p className={`text-gray-600 leading-relaxed text-sm sm:text-base flex-grow ${item.marginTop}`}>
                       {item.desc}
                     </p>
@@ -170,18 +216,19 @@ export default function About() {
                 </div>
               ))}
             </div>
-
-
           </div>
         </section>
 
-
-
-        {/* Additional Sections Grid - Responsive */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        {/* Additional Sections Grid */}
+        <section 
+          id="additional-sections"
+          data-animate
+          className={`py-8 sm:py-12 md:py-16 lg:py-20 bg-white transition-all duration-700 ${
+            isVisible['additional-sections'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-
 
               {[
                 {
@@ -209,10 +256,14 @@ export default function About() {
                   desc: 'We invest extensively in R&D to provide innovative solutions that address specific health issues. As a result, our company offers a varied product range with great formula.'
                 }
               ].map((item, i) => (
-                <div key={i} className="rounded-xl sm:rounded-2xl p-6 sm:p-7 md:p-8" style={{ backgroundColor: item.bg }}>
+                <div 
+                  key={i} 
+                  className="rounded-xl sm:rounded-2xl p-6 sm:p-7 md:p-8 hover:scale-105 hover:shadow-xl transition-all duration-500 group"
+                  style={{ backgroundColor: item.bg, animationDelay: `${i * 100}ms` }}
+                >
                   <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                    <span className="text-2xl sm:text-3xl">{item.icon}</span>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-700">{item.title}</h3>
+                    <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-300">{item.icon}</span>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-700 group-hover:text-gray-900 transition-colors duration-300">{item.title}</h3>
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm sm:text-base mt-3 sm:mt-4">
                     {item.desc}
@@ -220,30 +271,30 @@ export default function About() {
                 </div>
               ))}
 
-
-
             </div>
           </div>
         </section>
 
-
-
-        {/* Our Values - Responsive */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+        {/* Our Values */}
+        <section 
+          id="our-values"
+          data-animate
+          className={`py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50 transition-all duration-700 ${
+            isVisible['our-values'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
             <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300">
                 Our Values
-                <span className="text-2xl sm:text-3xl">🤝</span>
+                <span className="text-2xl sm:text-3xl animate-float" style={{ animationDelay: '0.4s' }}>🤝</span>
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
                 At Nutripeak, our values are the cornerstone of everything we do. They guide our decisions, actions, & relationships as we strive to make a positive impact on the health & wellness of our customers & communities.
               </p>
             </div>
 
-
-
-            {/* Values Grid - Responsive */}
+            {/* Values Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-x-16 md:gap-y-10 max-w-5xl mx-auto">
               {[
                 {
@@ -263,10 +314,14 @@ export default function About() {
                   desc: 'Our customers are at the heart of everything we do. We are dedicated to providing exceptional service, listening to feedback, & continually improving to meet their evolving needs & expectations.'
                 }
               ].map((item, i) => (
-                <div key={i}>
+                <div 
+                  key={i}
+                  className="hover:translate-x-2 transition-transform duration-300"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
                   <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                    <span className="text-xl sm:text-2xl" style={{ color: '#73C7E3' }}>✓</span>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">{item.title}</h3>
+                    <span className="text-xl sm:text-2xl transition-transform hover:scale-125 duration-300" style={{ color: '#73C7E3' }}>✓</span>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700 hover:text-[#73C7E3] transition-colors duration-300">{item.title}</h3>
                   </div>
                   <p className="text-gray-600 leading-relaxed pl-8 sm:pl-10 text-sm sm:text-base mt-2 sm:mt-3">
                     {item.desc}
@@ -277,24 +332,26 @@ export default function About() {
           </div>
         </section>
 
-
-
-        {/* Our Vision - Responsive */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        {/* Our Vision */}
+        <section 
+          id="our-vision"
+          data-animate
+          className={`py-8 sm:py-12 md:py-16 lg:py-20 bg-white transition-all duration-700 ${
+            isVisible['our-vision'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
             <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 inline-flex items-center gap-2 sm:gap-3 justify-center mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300">
                 Our Vision
-                <span className="text-2xl sm:text-3xl">🏢</span>
+                <span className="text-2xl sm:text-3xl animate-float" style={{ animationDelay: '0.6s' }}>🏢</span>
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
                 At Nutripeak, our vision is to lead the nutraceutical industry by pioneering innovative health solutions that enhance the well-being of our customers worldwide. We envision a future where natural, science-backed supplements are integral to every individual's journey towards optimal health and vitality.
               </p>
             </div>
 
-
-
-            {/* Vision Grid - Responsive */}
+            {/* Vision Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 max-w-5xl mx-auto">
               {[
                 {
@@ -310,11 +367,15 @@ export default function About() {
                   desc: 'Empowering individuals with knowledge about the benefits of nutraceuticals and supporting informed choices for healthier lifestyles.'
                 }
               ].map((item, i) => (
-                <div key={i} className="text-center">
+                <div 
+                  key={i} 
+                  className="text-center group hover:translate-y-[-8px] transition-transform duration-500"
+                  style={{ animationDelay: `${i * 150}ms` }}
+                >
                   <div className="flex justify-center mb-3 sm:mb-4">
-                    <span className="text-2xl sm:text-3xl" style={{ color: '#73C7E3' }}>✓</span>
+                    <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-300" style={{ color: '#73C7E3' }}>✓</span>
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700 mb-2 sm:mb-3">{item.title}</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700 mb-2 sm:mb-3 group-hover:text-[#059669] transition-colors duration-300">{item.title}</h3>
                   <p className="text-gray-600 leading-relaxed text-sm sm:text-base mt-2 sm:mt-3">
                     {item.desc}
                   </p>
@@ -324,11 +385,7 @@ export default function About() {
           </div>
         </section>
 
-
-
       </div>
-
-
 
       <Footer />
     </>

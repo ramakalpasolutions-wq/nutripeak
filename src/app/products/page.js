@@ -1,15 +1,32 @@
 'use client'
 
-
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('All Products')
   const [expandedProducts, setExpandedProducts] = useState([])
+  const [isVisible, setIsVisible] = useState({})
 
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible((prev) => ({ ...prev, [entry.target.id]: true }))
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    const sections = document.querySelectorAll('[data-animate]')
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
 
   const categories = [
     'All Products',
@@ -19,7 +36,6 @@ export default function Products() {
     'HEALTH & WELLNESS',
     'COLLAGEN'
   ]
-
 
   const products = [
     {
@@ -123,11 +139,9 @@ export default function Products() {
     }
   ]
 
-
   const filteredProducts = activeCategory === 'All Products'
     ? products
     : products.filter(p => p.category.includes(activeCategory))
-
 
   const toggleExpand = (productId) => {
     setExpandedProducts(prev => 
@@ -137,35 +151,38 @@ export default function Products() {
     )
   }
 
-
   return (
     <>
       <Navbar />
       
       <div className="pt-20 sm:pt-24 md:pt-28">
 
-
-        {/* Hero Banner - Fully Responsive */}
+        {/* Hero Banner */}
         <section className="relative h-64 sm:h-80 md:h-96 lg:h-[460px] overflow-hidden bg-white">
           <div className="grid grid-cols-1 md:grid-cols-2 h-full">
-            <div className="hidden md:block relative">
+            <div className="hidden md:block relative overflow-hidden group">
               <img 
                 src="/products-hero.jpg" 
                 alt="Products" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
             </div>
-            <div className="relative overflow-hidden flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #73C7E3, #89FF9F)' }}>
-              <h1 className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white uppercase tracking-wider px-4">
+            <div className="relative overflow-hidden flex items-center justify-center group" style={{ background: 'linear-gradient(135deg, #73C7E3, #89FF9F)' }}>
+              <h1 className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white uppercase tracking-wider px-4 group-hover:scale-110 transition-transform duration-500">
                 PRODUCTS
               </h1>
             </div>
           </div>
         </section>
 
-
-        {/* Intro Text - Responsive */}
-        <section className="py-8 sm:py-10 md:py-12 bg-gray-50">
+        {/* Intro Text */}
+        <section 
+          id="intro-text"
+          data-animate
+          className={`py-8 sm:py-10 md:py-12 bg-gray-50 transition-all duration-700 ${
+            isVisible['intro-text'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
               Explore our diverse range of nutraceutical products designed to enhance your health and vitality. From vitamins and supplements to specialized formulations for targeted health benefits, each product is crafted to empower you on your journey to better health.
@@ -173,41 +190,34 @@ export default function Products() {
           </div>
         </section>
 
-
-        {/* Category Tabs and Products - Responsive */}
-        <section className="py-8 sm:py-12 md:py-16 bg-white">
+        {/* Category Tabs and Products */}
+        <section 
+          id="products-section"
+          data-animate
+          className={`py-8 sm:py-12 md:py-16 bg-white transition-all duration-700 ${
+            isVisible['products-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
             
             {/* Header with Title and Filters */}
             <div className="mb-8 sm:mb-10 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 mb-6 sm:mb-8 hover:text-[#059669] transition-colors duration-300">
                 Our<br className="md:hidden" /> Products
               </h2>
               
-              {/* Category Filter Buttons - Responsive */}
+              {/* Category Filter Buttons */}
               <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
                 {categories.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm md:text-base font-semibold transition-all whitespace-nowrap ${
+                    className={`px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 whitespace-nowrap hover:scale-105 active:scale-95 ${
                       activeCategory === cat
-                        ? 'text-white shadow-md'
-                        : 'bg-white text-gray-700 border border-gray-300'
+                        ? 'text-white shadow-lg scale-105'
+                        : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-[#89FF9F] hover:text-[#059669] hover:shadow-md'
                     }`}
                     style={activeCategory === cat ? { background: 'linear-gradient(135deg, #89FF9F, #73C7E3)' } : {}}
-                    onMouseOver={(e) => {
-                      if (activeCategory !== cat) {
-                        e.currentTarget.style.borderColor = '#89FF9F'
-                        e.currentTarget.style.color = '#059669'
-                      }
-                    }}
-                    onMouseOut={(e) => {
-                      if (activeCategory !== cat) {
-                        e.currentTarget.style.borderColor = '#d1d5db'
-                        e.currentTarget.style.color = '#374151'
-                      }
-                    }}
                   >
                     {cat}
                   </button>
@@ -215,47 +225,63 @@ export default function Products() {
               </div>
             </div>
 
-
-            {/* Products Grid - Fully Responsive */}
+            {/* Products Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-              {filteredProducts.map((product) => (
+              {filteredProducts.map((product, index) => (
                 <div 
                   key={product.id} 
-                  className="bg-white rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-xl transition group"
-                  style={{ border: '2px solid #dbeafe' }}
+                  className="bg-white rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 group hover:scale-105"
+                  style={{ 
+                    border: '2px solid #dbeafe',
+                    animation: `fadeInUp 0.5s ease-out ${index * 0.1}s both`
+                  }}
                 >
-                  <div className="h-56 sm:h-64 md:h-72 lg:h-80 bg-gray-50 flex items-center justify-center p-4 sm:p-6">
+                  <div className="h-56 sm:h-64 md:h-72 lg:h-80 bg-gray-50 flex items-center justify-center p-4 sm:p-6 overflow-hidden">
                     <img 
                       src={product.image} 
                       alt={product.name} 
-                      className="w-full h-full object-contain group-hover:scale-105 transition"
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
                     />
                   </div>
                   <div className="p-4 sm:p-5 md:p-6">
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-700 mb-2 sm:mb-3">{product.name}</h3>
-                    <p className={`text-gray-600 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 leading-relaxed ${product.marginTop}`}>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-700 mb-2 sm:mb-3 group-hover:text-[#059669] transition-colors duration-300">
+                      {product.name}
+                    </h3>
+                    <p 
+                      className={`text-gray-600 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 leading-relaxed transition-all duration-500 ${product.marginTop} ${
+                        expandedProducts.includes(product.id) ? 'max-h-[500px] opacity-100' : 'max-h-[100px] opacity-90'
+                      }`}
+                    >
                       {expandedProducts.includes(product.id) 
                         ? product.fullDesc 
                         : product.shortDesc}
                     </p>
                     <button 
                       onClick={() => toggleExpand(product.id)}
-                      className="font-semibold hover:underline text-xs sm:text-sm"
+                      className="font-semibold hover:underline text-xs sm:text-sm inline-flex items-center gap-2 group/btn hover:translate-x-2 transition-all duration-300"
                       style={{ color: '#73C7E3' }}
                     >
-                      {expandedProducts.includes(product.id) ? 'Read less' : 'Read more'}
+                      {expandedProducts.includes(product.id) ? (
+                        <>
+                          Read less
+                          <span className="transform group-hover/btn:rotate-180 transition-transform duration-300">↑</span>
+                        </>
+                      ) : (
+                        <>
+                          Read more
+                          <span className="transform group-hover/btn:translate-x-1 transition-transform duration-300">→</span>
+                        </>
+                      )}
                     </button>
                   </div>
                 </div>
               ))}
             </div>
 
-
           </div>
         </section>
 
-
-        {/* Disclaimer - Responsive */}
+        {/* Disclaimer */}
         <section className="py-4 sm:py-6 bg-gray-100">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
             <p className="text-center text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
@@ -264,11 +290,11 @@ export default function Products() {
           </div>
         </section>
 
-
       </div>
 
-
       <Footer />
+
+      
     </>
   )
 }
