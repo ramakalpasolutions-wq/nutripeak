@@ -23,7 +23,6 @@ export default function Home() {
     return () => clearInterval(timer)
   }, [])
 
-  // Intersection Observer for scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,78 +34,65 @@ export default function Home() {
       },
       { threshold: 0.1 }
     )
-
     const sections = document.querySelectorAll('[data-animate]')
     sections.forEach((section) => observer.observe(section))
-
     return () => observer.disconnect()
   }, [])
 
   const featuredProducts = [
     {
-      name: 'BIOTIN+ KERATIN',
-      desc: 'Biotin, protein, soya, iso-flavours with grape seed extract, essential vitamins & minerals for hair, skin and nails.',
-      image: '/products/biotin-keratin.jpg'
+      name: 'Triple Strength Salmon Omega-3',
+      desc: 'High-potency salmon fish oil with 560 mg EPA and 400 mg DHA per softgel to support heart, brain and joint health.',
+      image: '/products/Omega 3.jpg.jpeg'
     },
     {
-      name: 'CREATINE MONOHYDRATE',
-      desc: 'Helps increase protein synthesis. Enhance performance and build lean body mass. Improves heart muscle strength.',
-      image: '/products/creatine.jpg'
+      name: 'Vitamin D3 + K2 (MK7)',
+      desc: 'Vegan D3 from lichen (600 IU) with bioactive K2‑MK7 (55 mcg) for comprehensive bone, vascular and immune support.',
+      image: '/products/Vitamin D3 + K2 60 Capsules.jpg'
     },
     {
-      name: 'HY5 – ENERGY & FOCUS',
-      desc: 'HY5, a carefully crafted supplement, aims to boost your cognitive abilities by enhancing focus and endurance.',
-      image: '/products/hy5.jpg'
+      name: 'Curcumin 95% + Piperine',
+      desc: '500 mg curcumin standardized to 95% curcuminoids with piperine for enhanced absorption and joint resilience.',
+      image: '/products/CURCUMIN 95 Piperine.jpg'
     },
     {
-      name: 'HYDROLYZED COLLAGEN',
-      desc: '100% pure collagen protein enriched with hyaluronic acid, vitamin C & biotin. Aids in radiant & glowing skin.',
-      image: '/products/collagen.jpg'
+      name: 'Liver & Kidney Detox',
+      desc: 'NAC, milk thistle (80% silymarin), dandelion, turmeric, CoQ10 and vitamins for structured liver and kidney support.',
+      image: '/products/Liver & Kidney Detox.jpg'
     },
     {
-      name: 'L-TYROSINE',
-      desc: 'Neuro Transmitter support for mental alertness. Memory and thinking skills. Improve mental performance under stress.',
-      image: '/products/l-tyrosine.jpg'
+      name: 'Liposomal Vitamin C',
+      desc: 'Liposomal vitamin C for superior bioavailability, immune function, collagen formation and daily antioxidant defence.',
+      image: '/products/LIPOSOMAL VITAMIN C.jpg'
     },
     {
-      name: 'ALPHA GPC',
-      desc: 'High Quality Alpha Glycerophosphocholine (GPC). Healthy Cognitive Health Promoting Supplement. Rich in Choline.',
-      image: '/products/alpha-gpc.jpg'
+      name: 'HY5 Micronized Creatine Monohydrate',
+      desc: '3 g ultra-fine 200‑mesh creatine per serving for strength, power, mixability and high‑intensity workout recovery.',
+      image: '/products/HY5 CREATINE POUCH MOCKUP Front v2.jpg'
     },
     {
-      name: 'MILK THISTLE',
-      desc: 'Helps in protecting the cells of liver by blocking harmful toxins, protects from free radical damage & gives a boost of antioxidants.',
-      image: '/products/milk-thistle.jpg'
+      name: 'HY5 Micronized Creatine + Taurine',
+      desc: 'Creatine with taurine for muscle strength, cellular hydration, electrolyte balance and advanced training performance.',
+      image: '/products/HY5_+TAURINE_POUCH_MOCKUP_FRONT_v1.jpg'
     },
     {
-      name: 'L-GLUTAMINE',
-      desc: 'Most abundant free amino acid. Normalize growth hormone. Promote glucose uptake after workouts.',
-      image: '/products/l-glutamine.jpg'
+      name: 'LIVPURE Gummies',
+      desc: 'Milk thistle, dandelion and artichoke gummies for gentle everyday liver wellness and digestive comfort.',
+      image: '/products/Front Side Mango.jpg'
     },
     {
-      name: 'SUPER GREENS',
-      desc: 'Helps in detoxification. Supports joint & bone health. Aids in digestive discomfort. Promotes weight loss & appetite control.',
-      image: '/products/super-greens.jpg'
-    },
-    {
-      name: 'SUPER REDS',
-      desc: 'May slow the signs of ageing. Promotes healthy & glowing skin. Supports cardiovascular well-being. Benefits vision & eye health.',
-      image: '/products/super-reds.jpg'
-    },
-    {
-      name: 'L-CITRULLINE MALATE',
-      desc: 'Supports longer workouts, less soreness, better recovery. Alleviate the onset of fatigue during intense training.',
-      image: '/products/l-citrulline.jpg'
+      name: 'HY5 AfterParty',
+      desc: 'Electrolytes, milk thistle, ginger and NAC drink mix for overnight hydration, liver support and morning recovery.',
+      image: '/products/sachet with box.jpg.jpeg'
     }
   ]
 
   const scrollProducts = (direction) => {
     if (productsScrollRef.current) {
       const scrollAmount = 350
-      const newScrollPosition = direction === 'left' 
-        ? productsScrollRef.current.scrollLeft - scrollAmount 
+      const newScrollPosition = direction === 'left'
+        ? productsScrollRef.current.scrollLeft - scrollAmount
         : productsScrollRef.current.scrollLeft + scrollAmount
-      
       productsScrollRef.current.scrollTo({
         left: newScrollPosition,
         behavior: 'smooth'
@@ -117,42 +103,63 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      
+
       <div className="pt-20 sm:pt-24 md:pt-28">
-        
+
         {/* Hero Section */}
-        <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] 2xl:h-[800px] overflow-hidden bg-gray-100">
+        <section className="relative w-full h-[220px] sm:h-[280px] md:h-[350px] lg:h-[420px] xl:h-[500px] 2xl:h-[580px] overflow-hidden bg-gray-100">
+
+          {/* Slides */}
           {heroImages.map((image, index) => (
             <div
               key={index}
               className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
-              style={{
-                opacity: index === currentSlide ? 1 : 0
-              }}
+              style={{ opacity: index === currentSlide ? 1 : 0 }}
             >
               <img
                 src={image}
                 alt={`Hero ${index + 1}`}
                 className="w-full h-full object-contain"
               />
+
+              {/* Text overlay only on first slide */}
+              {index === 0 && (
+                <div className="absolute inset-0 flex items-center">
+                  <div
+                    className={`ml-8 sm:ml-12 md:ml-16 lg:ml-20 xl:ml-80 transition-opacity duration-700 ${
+  currentSlide === 0 ? 'opacity-100' : 'opacity-0'
+}`}
+
+                  >
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-gray-800 leading-tight text-left">
+                      Your Trusted
+                      <br />
+                      <span style={{ color: '#059669' }}>Partner In Health</span>
+                      <br />
+                      And Wellness.
+                    </h1>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
 
           {/* Navigation Arrows */}
-          <div className="absolute inset-0 flex items-center justify-between px-3 sm:px-6 md:px-12">
-            <button
-              onClick={() => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)}
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 hover:scale-110 flex items-center justify-center transition-all duration-300 shadow-lg z-10"
-            >
-              <span className="text-xl sm:text-2xl md:text-3xl text-white font-bold">‹</span>
-            </button>
-            <button
-              onClick={() => setCurrentSlide((prev) => (prev + 1) % heroImages.length)}
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 hover:scale-110 flex items-center justify-center transition-all duration-300 shadow-lg z-10"
-            >
-              <span className="text-xl sm:text-2xl md:text-3xl text-white font-bold">›</span>
-            </button>
-          </div>
+<div className="absolute inset-0 flex items-center justify-between px-3 sm:px-6 md:px-12 pointer-events-none">
+  <button
+    onClick={() => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)}
+    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg z-10 pointer-events-auto hover:scale-110 bg-transparent sm:bg-transparent md:bg-white/30 md:backdrop-blur-sm md:hover:bg-white/50"
+  >
+    <span className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent sm:text-transparent md:text-white">‹</span>
+  </button>
+  <button
+    onClick={() => setCurrentSlide((prev) => (prev + 1) % heroImages.length)}
+    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg z-10 pointer-events-auto hover:scale-110 bg-transparent sm:bg-transparent md:bg-white/30 md:backdrop-blur-sm md:hover:bg-white/50"
+  >
+    <span className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent sm:text-transparent md:text-white">›</span>
+  </button>
+</div>
+
 
           {/* Dots */}
           <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 z-10">
@@ -169,10 +176,11 @@ export default function Home() {
               />
             ))}
           </div>
+
         </section>
 
         {/* Company Overview */}
-        <section 
+        <section
           id="company-overview"
           data-animate
           className={`py-8 sm:py-12 md:py-16 lg:py-20 transition-all duration-700 ${
@@ -191,7 +199,7 @@ export default function Home() {
         </section>
 
         {/* Who We Are */}
-        <section 
+        <section
           id="who-we-are"
           data-animate
           className={`py-8 sm:py-12 md:py-16 lg:py-20 bg-white transition-all duration-700 delay-100 ${
@@ -209,7 +217,7 @@ export default function Home() {
         </section>
 
         {/* Our Mission & Vision */}
-        <section 
+        <section
           id="mission-vision"
           data-animate
           className={`py-8 sm:py-12 md:py-16 lg:py-20 transition-all duration-700 delay-200 ${
@@ -219,7 +227,7 @@ export default function Home() {
         >
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
-              
+
               {/* Our Mission */}
               <div className="hover:translate-y-[-8px] transition-transform duration-300">
                 <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
@@ -227,9 +235,9 @@ export default function Home() {
                   <span className="text-2xl sm:text-3xl md:text-4xl animate-bounce">🚀</span>
                 </div>
                 <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6 text-left">
-                  At Nutripeak, our mission is to empower individuals to achieve optimal health and wellness through natural, science-backed nutraceutical solutions. We believe that everyone deserves access to high-quality, effective supplements that support a balanced lifestyle and enhance overall well-being. <Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline hover:scale-105 inline-block transition-transform duration-200">Read more</Link>
+                  At Nutripeak, our mission is to empower individuals to achieve optimal health and wellness through natural, science-backed nutraceutical solutions. We believe that everyone deserves access to high-quality, effective supplements that support a balanced lifestyle and enhance overall well-being.{' '}
+                  <Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline hover:scale-105 inline-block transition-transform duration-200">Read more</Link>
                 </p>
-                
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {['Quality', 'Transparency', 'Innovation', 'Customer Care'].map((item, i) => (
                     <div key={item} className="flex items-center gap-2 hover:translate-x-2 transition-transform duration-200" style={{ animationDelay: `${i * 100}ms` }}>
@@ -247,9 +255,9 @@ export default function Home() {
                   <span className="text-2xl sm:text-3xl md:text-4xl">🏢</span>
                 </div>
                 <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6 text-left">
-                  At Nutripeak, our vision is to lead the nutraceutical industry by pioneering innovative health solutions that enhance the well-being of our customers worldwide. We envision a future where natural, science-backed supplements are integral to every individual's journey towards optimal health and vitality. <Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline hover:scale-105 inline-block transition-transform duration-200">Read more</Link>
+                  At Nutripeak, our vision is to lead the nutraceutical industry by pioneering innovative health solutions that enhance the well-being of our customers worldwide. We envision a future where natural, science-backed supplements are integral to every individual's journey towards optimal health and vitality.{' '}
+                  <Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline hover:scale-105 inline-block transition-transform duration-200">Read more</Link>
                 </p>
-                
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {['Innovation', 'Global Impact', 'Education'].map((item, i) => (
                     <div key={item} className="flex items-center gap-2 hover:translate-x-2 transition-transform duration-200" style={{ animationDelay: `${i * 100}ms` }}>
@@ -265,7 +273,7 @@ export default function Home() {
         </section>
 
         {/* Our Values */}
-        <section 
+        <section
           id="our-values"
           data-animate
           className={`py-8 sm:py-12 md:py-16 lg:py-20 bg-white transition-all duration-700 delay-300 ${
@@ -278,9 +286,9 @@ export default function Home() {
               <span className="text-2xl sm:text-3xl md:text-4xl">🤝</span>
             </div>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed text-center max-w-5xl mx-auto mb-6 sm:mb-8">
-              At Nutripeak, our values are the cornerstone of everything we do. They guide our decisions, actions, and relationships as we strive to make a positive impact on the health and wellness of our customers and communities. <Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline hover:scale-105 inline-block transition-transform duration-200">Read more</Link>
+              At Nutripeak, our values are the cornerstone of everything we do. They guide our decisions, actions, and relationships as we strive to make a positive impact on the health and wellness of our customers and communities.{' '}
+              <Link href="/about" style={{ color: '#73C7E3' }} className="hover:underline hover:scale-105 inline-block transition-transform duration-200">Read more</Link>
             </p>
-            
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
               {['Quality', 'Transparency', 'Innovation', 'Customer Focus'].map((item, i) => (
                 <div key={item} className="flex items-center gap-2 hover:translate-x-2 transition-transform duration-200" style={{ animationDelay: `${i * 100}ms` }}>
@@ -293,7 +301,7 @@ export default function Home() {
         </section>
 
         {/* Featured Products */}
-        <section 
+        <section
           id="featured-products"
           data-animate
           className={`py-8 sm:py-12 md:py-16 lg:py-20 transition-all duration-700 ${
@@ -302,19 +310,19 @@ export default function Home() {
           style={{ background: 'linear-gradient(to bottom, #ffffff, #e0f2fe)' }}
         >
           <div className="max-w-[2048px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-            
+
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-12 gap-4">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 uppercase hover:scale-105 transition-transform duration-300">Featured Products</h2>
-              
+
               <div className="flex gap-2 sm:gap-3 lg:hidden">
-                <button 
+                <button
                   onClick={() => scrollProducts('left')}
                   className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 text-sm sm:text-base md:text-lg hover:scale-110 hover:shadow-lg"
                   style={{ border: '2px solid #73C7E3', color: '#73C7E3', background: 'white' }}
                 >
                   ←
                 </button>
-                <button 
+                <button
                   onClick={() => scrollProducts('right')}
                   className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 text-sm sm:text-base md:text-lg hover:scale-110 hover:shadow-lg"
                   style={{ border: '2px solid #73C7E3', color: '#73C7E3', background: 'white' }}
@@ -323,10 +331,9 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            
+
             <div className="relative">
-              
-              <button 
+              <button
                 onClick={() => scrollProducts('left')}
                 className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 xl:-translate-x-8 w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center transition-all duration-300 z-10 hidden lg:flex shadow-lg hover:scale-110 hover:shadow-xl"
                 style={{ border: '2px solid #73C7E3', color: '#73C7E3' }}
@@ -334,7 +341,7 @@ export default function Home() {
                 <span className="text-xl xl:text-2xl">←</span>
               </button>
 
-              <button 
+              <button
                 onClick={() => scrollProducts('right')}
                 className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 xl:translate-x-8 w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center transition-all duration-300 z-10 hidden lg:flex shadow-lg hover:scale-110 hover:shadow-xl"
                 style={{ border: '2px solid #73C7E3', color: '#73C7E3' }}
@@ -342,21 +349,21 @@ export default function Home() {
                 <span className="text-xl xl:text-2xl">→</span>
               </button>
 
-              <div 
+              <div
                 ref={productsScrollRef}
                 className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth pb-4 hide-scrollbar"
               >
                 {featuredProducts.map((product, i) => (
-                  <div 
-                    key={i} 
-                    className="bg-white rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300 flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96 group" 
+                  <div
+                    key={i}
+                    className="bg-white rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300 flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96 group"
                     style={{ border: '2px solid #d1fae5' }}
                   >
                     <div className="h-48 sm:h-56 md:h-64 bg-gray-100 flex items-center justify-center p-4 sm:p-6 overflow-hidden">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" 
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
                     <div className="p-4 sm:p-6">
@@ -374,7 +381,7 @@ export default function Home() {
         </section>
 
         {/* Benefits Section */}
-        <section 
+        <section
           id="benefits"
           data-animate
           className={`py-8 sm:py-12 md:py-16 lg:py-20 bg-white transition-all duration-700 ${
@@ -390,8 +397,8 @@ export default function Home() {
                 { icon: '📞', title: 'Dedicated Support', desc: 'Support on Priority' }
               ].map((benefit, i) => (
                 <div key={i} className="text-center group hover:translate-y-[-8px] transition-transform duration-300">
-                  <div 
-                    className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 mx-auto mb-3 sm:mb-4 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-110" 
+                  <div
+                    className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 mx-auto mb-3 sm:mb-4 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-110"
                     style={{ background: 'linear-gradient(135deg, #89FF9F, #73C7E3)' }}
                   >
                     <span className="text-3xl sm:text-4xl lg:text-5xl text-white group-hover:scale-125 transition-transform duration-300">{benefit.icon}</span>
@@ -416,8 +423,6 @@ export default function Home() {
       </div>
 
       <Footer />
-
-      
     </>
   )
 }
