@@ -230,10 +230,11 @@ export default function Products() {
                   {/* Product Image */}
                   <div className="h-56 sm:h-64 md:h-72 lg:h-80 bg-gray-50 flex items-center justify-center p-4 sm:p-6 overflow-hidden relative">
                     <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
-                    />
+  src={product.image}
+  alt={product.name}
+  className="w-full h-full object-contain scale-[1.3]"
+/>
+
                     {/* Show second image badge for LIVPURE gummies that have two variants */}
                     {product.image2 && (
                       <div className="absolute bottom-2 right-2 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border-2 border-white shadow-md">

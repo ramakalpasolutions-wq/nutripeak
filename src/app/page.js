@@ -48,7 +48,7 @@ export default function Home() {
     {
       name: 'Vitamin D3 + K2 (MK7)',
       desc: 'Vegan D3 from lichen (600 IU) with bioactive K2‑MK7 (55 mcg) for comprehensive bone, vascular and immune support.',
-      image: '/products/Vitamin D3 + K2 60 Capsules.jpg'
+      image: '/products/vitamin-d3-k2-60-capsules.jpg'
     },
     {
       name: 'Curcumin 95% + Piperine',
