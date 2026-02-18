@@ -33,27 +33,30 @@ export default function About() {
       <div className="pt-20 sm:pt-24 md:pt-28">
 
         {/* Hero Banner */}
-        <section className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 h-full">
-            {/* Left - Gradient Background */}
-            <div 
-              className="flex items-center justify-center px-6 sm:px-8 md:px-12 animate-fade-in" 
-              style={{ background: 'linear-gradient(135deg, #73C7E3, #89FF9F)' }}
-            >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white uppercase tracking-wider hover:scale-105 transition-transform duration-500">
-                ABOUT US
-              </h1>
-            </div>
-            {/* Right - Image */}
-            <div className="hidden md:block overflow-hidden">
-              <img
-                src="/about-hero.jpeg"
-                alt="About Us"
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-              />
-            </div>
-          </div>
-        </section>
+<section className="relative h-80 sm:h-96 md:h-[420px] lg:h-[520px] xl:h-[580px] overflow-hidden">
+  {/* Background image */}
+  <img
+    src="/about-hero.jpg"
+    alt="About Nutripeak"
+    className="w-full h-full object-cover"
+  />
+
+  {/* Dark overlay for readability */}
+  <div className="absolute inset-0 bg-black/30" />
+
+  {/* Overlay text */}
+  <div className="absolute inset-0 flex items-center">
+    <div className="px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white uppercase tracking-wider drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]">
+        About Us
+      </h1>
+      <p className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-base md:text-lg text-gray-100 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+        Blending scientific innovation with nature to create premium nutraceuticals for everyday wellness.
+      </p>
+    </div>
+  </div>
+</section>
+
 
         {/* Company Overview */}
         <section 

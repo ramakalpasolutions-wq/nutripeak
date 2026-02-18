@@ -146,25 +146,31 @@ export default function Products() {
       <div className="pt-20 sm:pt-24 md:pt-28">
 
         {/* Hero Banner */}
-        <section className="relative h-64 sm:h-80 md:h-96 lg:h-[460px] overflow-hidden bg-white">
-          <div className="grid grid-cols-1 md:grid-cols-2 h-full">
-            <div className="hidden md:block relative overflow-hidden group">
-              <img
-                src="/products-hero.png"
-                alt="Products"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-            </div>
-            <div
-              className="relative overflow-hidden flex items-center justify-center group"
-              style={{ background: 'linear-gradient(135deg, #73C7E3, #89FF9F)' }}
-            >
-              <h1 className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white uppercase tracking-wider px-4 group-hover:scale-110 transition-transform duration-500">
-                PRODUCTS
-              </h1>
-            </div>
-          </div>
-        </section>
+<section className="relative h-80 sm:h-96 md:h-[420px] lg:h-[520px] xl:h-[580px] overflow-hidden">
+
+  {/* Background image */}
+  <img
+    src="/products-hero.jpg" // use the renamed file
+    alt="Our nutraceutical products"
+    className="w-full h-full object-cover"
+  />
+
+  {/* Overlay tint for readability */}
+  <div className="absolute inset-0 bg-black/30" />
+
+  {/* Overlay text */}
+  <div className="absolute inset-0 flex items-center">
+    <div className="px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white uppercase tracking-wider drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]">
+        Products
+      </h1>
+      <p className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-base md:text-lg text-gray-100 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+        Science‑backed nutraceuticals designed to support everyday health, performance and recovery.
+      </p>
+    </div>
+  </div>
+</section>
+
 
         {/* Intro Text */}
         <section
