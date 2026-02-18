@@ -36,10 +36,11 @@ export default function About() {
 <section className="relative h-80 sm:h-96 md:h-[420px] lg:h-[520px] xl:h-[580px] overflow-hidden">
   {/* Background image */}
   <img
-    src="/about-hero.jpg"
-    alt="About Nutripeak"
-    className="w-full h-full object-cover"
-  />
+  src="/about-hero.jpg"
+  alt="About Nutripeak"
+  className="w-full h-full object-cover sm:object-cover object-[70%_center] sm:object-center"
+/>
+
 
   {/* Dark overlay for readability */}
   <div className="absolute inset-0 bg-black/30" />

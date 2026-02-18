@@ -150,10 +150,11 @@ export default function Products() {
 
   {/* Background image */}
   <img
-    src="/products-hero.jpg" // use the renamed file
-    alt="Our nutraceutical products"
-    className="w-full h-full object-cover"
-  />
+  src="/products-hero.jpg"
+  alt="Our nutraceutical products"
+  className="w-full h-full object-cover sm:object-cover"
+/>
+
 
   {/* Overlay tint for readability */}
   <div className="absolute inset-0 bg-black/30" />
