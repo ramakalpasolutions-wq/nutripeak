@@ -144,19 +144,19 @@ export default function Home() {
             </div>
           ))}
 
-          {/* Navigation Arrows */}
-<div className="absolute inset-0 flex items-center justify-between px-3 sm:px-6 md:px-12 pointer-events-none">
+ {/* Navigation Arrows */}
+<div className="absolute inset-0 flex items-center justify-between px-2 sm:px-3 pointer-events-none">
   <button
     onClick={() => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)}
-    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg z-10 pointer-events-auto hover:scale-110 bg-transparent sm:bg-transparent md:bg-white/30 md:backdrop-blur-sm md:hover:bg-white/50"
+    className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all duration-300 z-10 pointer-events-auto hover:scale-110 bg-white/70 hover:bg-white border border-gray-300 shadow-md"
   >
-    <span className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent sm:text-transparent md:text-white">‹</span>
+    <span className="text-base sm:text-lg md:text-xl font-semibold text-gray-500">‹</span>
   </button>
   <button
     onClick={() => setCurrentSlide((prev) => (prev + 1) % heroImages.length)}
-    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg z-10 pointer-events-auto hover:scale-110 bg-transparent sm:bg-transparent md:bg-white/30 md:backdrop-blur-sm md:hover:bg-white/50"
+    className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all duration-300 z-10 pointer-events-auto hover:scale-110 bg-white/70 hover:bg-white border border-gray-300 shadow-md"
   >
-    <span className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent sm:text-transparent md:text-white">›</span>
+    <span className="text-base sm:text-lg md:text-xl font-semibold text-gray-500">›</span>
   </button>
 </div>
 
