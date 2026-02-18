@@ -49,7 +49,7 @@ export default function Products() {
       name: 'Vitamin D3 + K2 (MK7)',
       subName: 'Veg D3 (Lichen) · 600 IU D3 · 55 mcg K2‑MK7',
       category: ['All Products', 'OMEGA & VITAMINS'],
-      image: '/products/Vitamin D3 + K2 60 Capsules.jpg',
+      image: '/products/vitamin-d3-k2-60-capsules.jpg',
       shortDesc: 'Vegan D3 from lichen (600 IU) with bioactive K2‑MK7 (55 mcg) for comprehensive bone, vascular and immune support.',
       fullDesc: 'Each capsule combines vegan vitamin D3 from lichen (600 IU) with bioactive vitamin K2‑MK7 (55 mcg) for comprehensive bone and calcium support. This synergistic pairing helps optimise calcium absorption and its proper deposition into bones, while also supporting vascular and immune health. The formula is designed for individuals with limited sun exposure or increased bone health needs. A clean, vegetarian-friendly option for long‑term skeletal and overall wellness support.',
       marginTop: 'mt-0'
@@ -150,7 +150,7 @@ export default function Products() {
           <div className="grid grid-cols-1 md:grid-cols-2 h-full">
             <div className="hidden md:block relative overflow-hidden group">
               <img
-                src="/products-hero.jpg"
+                src="/products-hero.png"
                 alt="Products"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />

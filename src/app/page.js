@@ -119,7 +119,7 @@ export default function Home() {
               <img
                 src={image}
                 alt={`Hero ${index + 1}`}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
               />
 
               {/* Text overlay only on first slide */}

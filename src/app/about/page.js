@@ -47,7 +47,7 @@ export default function About() {
             {/* Right - Image */}
             <div className="hidden md:block overflow-hidden">
               <img
-                src="/about-hero.jpg"
+                src="/about-hero.jpeg"
                 alt="About Us"
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
