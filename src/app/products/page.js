@@ -27,7 +27,7 @@ export default function Products() {
 
   const categories = [
     'All Products',
-    'OMEGA & VITAMINS',
+    'VITAMINS',
     'SPORTS NUTRITION',
     'LIVER SUPPORT',
     'HEALTH & WELLNESS'
@@ -38,7 +38,7 @@ export default function Products() {
       id: 1,
       name: 'Triple Strength Salmon Omega-3',
       subName: '560 mg EPA + 400 mg DHA',
-      category: ['All Products', 'OMEGA & VITAMINS'],
+      category: ['All Products', 'HEALTH & WELLNESS'],
       image: '/products/Omega 3.jpg.jpeg',
       shortDesc: 'High-potency salmon fish oil with 560 mg EPA and 400 mg DHA per softgel to support heart, brain and joint health.',
       fullDesc: 'This high-potency salmon fish oil delivers a concentrated 560 mg EPA and 400 mg DHA per softgel to support heart, brain and joint health. The clinically relevant omega‑3 ratio helps maintain healthy triglyceride levels and circulatory function, while also supporting cognitive performance and visual health. Its carefully selected fish oil and lemon flavour are designed for superior palatability and daily compliance. An ideal choice for those seeking a premium, science‑backed omega‑3 supplement.',
@@ -48,7 +48,7 @@ export default function Products() {
       id: 2,
       name: 'Vitamin D3 + K2 (MK7)',
       subName: 'Veg D3 (Lichen) · 600 IU D3 · 55 mcg K2‑MK7',
-      category: ['All Products', 'OMEGA & VITAMINS'],
+      category: ['All Products', 'VITAMINS'],
       image: '/products/vitamin-d3-k2-60-capsules.jpg',
       shortDesc: 'Vegan D3 from lichen (600 IU) with bioactive K2‑MK7 (55 mcg) for comprehensive bone, vascular and immune support.',
       fullDesc: 'Each capsule combines vegan vitamin D3 from lichen (600 IU) with bioactive vitamin K2‑MK7 (55 mcg) for comprehensive bone and calcium support. This synergistic pairing helps optimise calcium absorption and its proper deposition into bones, while also supporting vascular and immune health. The formula is designed for individuals with limited sun exposure or increased bone health needs. A clean, vegetarian-friendly option for long‑term skeletal and overall wellness support.',
@@ -78,7 +78,7 @@ export default function Products() {
       id: 5,
       name: 'Liposomal Vitamin C',
       subName: 'Higher Absorption · Collagen Boost · Iron Absorption',
-      category: ['All Products', 'OMEGA & VITAMINS'],
+      category: ['All Products', 'VITAMINS'],
       image: '/products/LIPOSOMAL VITAMIN C.jpg',
       shortDesc: 'Liposomal vitamin C (80 mg) for superior absorption, immune function, collagen support and antioxidant defence.',
       fullDesc: 'Each capsule delivers 80 mg of vitamin C with liposomal technology, formulated to support superior absorption and bioavailability. Vitamin C helps maintain normal immune function, supports collagen formation for skin and joint health, and contributes to the reduction of everyday tiredness and fatigue. It also aids iron absorption and provides antioxidant defence against oxidative stress. A modern, premium format for those who want reliable daily vitamin C support in a convenient capsule.',
@@ -239,8 +239,15 @@ export default function Products() {
                     <img
   src={product.image}
   alt={product.name}
-  className="w-full h-full object-contain scale-[1.3]"
+  className={`w-full h-full object-contain ${
+    product.name === 'HY5 Micronized Creatine Monohydrate' ||
+    product.name === 'HY5 Micronized Creatine + Taurine' ||
+    product.name === 'HY5 AfterParty'
+      ? 'scale-[1.0]'      // smaller for these 3
+      : 'scale-[1.3]'      // current size for others
+  }`}
 />
+
 
                     {/* Show second image badge for LIVPURE gummies that have two variants */}
                     {product.image2 && (

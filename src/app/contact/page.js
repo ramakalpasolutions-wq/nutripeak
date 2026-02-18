@@ -187,7 +187,10 @@ export default function Contact() {
                     <div className="flex-1">
                       <h4 className="text-base sm:text-lg md:text-xl font-bold text-gray-700 mb-1 group-hover:text-[#059669] transition-colors duration-300">Address</h4>
                       <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                        4-14-142, Samrat Colony, West Marredpally, Secunderabad, TS - 26
+                        NutriPeak Pvt Ltd
+Level 4, Regus Business Center,
+Gumidelli Towers, Begumpet, 
+Hyderabad, TS - 16.
                       </p>
                     </div>
                   </div>
@@ -219,7 +222,7 @@ export default function Contact() {
                         href="tel:+917675040885" 
                         className="text-gray-600 hover:text-[#89FF9F] transition-all duration-300 text-sm sm:text-base inline-block hover:translate-x-2"
                       >
-                        +91 7675040885
+                        +917901058585
                       </a>
                     </div>
                   </div>

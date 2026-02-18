@@ -65,7 +65,7 @@ export default function Navbar() {
             className="flex items-center gap-1 sm:gap-2 hover:text-white transition-all duration-300 hover:scale-105 group"
           >
             <span className="group-hover:rotate-12 transition-transform duration-300">📞</span>
-            <span>+91 7675040885</span>
+            <span>+917901058585</span>
           </a>
         </div>
       </div>
