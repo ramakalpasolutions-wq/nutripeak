@@ -172,7 +172,10 @@ export default function Footer() {
               <div className="group">
                 <strong className="block mb-1 group-hover:text-white transition-colors duration-300">📍 Address:</strong>
                 <p className="group-hover:translate-x-2 transition-transform duration-300">
-                  4-14-142, Samrat Colony, West Marredpally, Secunderabad, TS - 26
+                  NutriPeak Pvt Ltd
+Level 4, Regus Business Center,
+Gumidelli Towers, Begumpet, 
+Hyderabad, TS - 16.
                 </p>
               </div>
               
@@ -192,7 +195,7 @@ export default function Footer() {
                   href="tel:+917675040885" 
                   className="hover:text-white transition-all duration-300 inline-block hover:translate-x-2"
                 >
-                  +91 7675040885
+                  +917901058585
                 </a>
               </div>
               
